@@ -1,0 +1,19 @@
+Llama-3.1-8B-Instruct 
+8B 
+You want the single best accuracy/cost/speed sweet spot
+97.5–98.5%10–12 GB
+Current king for medical reasoning fine-tunes
+
+
+https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct
+
+
+i asked the ai to use the trial id instead of the elgibiltiy text and i'll join later to reduce token consumption
+since im using multiple llms i asked them to generate 10 patients per trial that always has the same ids p001-p010 and then i can use trial id + patient id to get patients unique ids that way solved the problem and i can use as meny llms as i want to generate the data sweet
+this part i requiring human expertiese and human in the loop pahse but i cant afford that so llms are my only option
+this project target a specific case theraputic interventional lung related cancer trials but the conscept can expand to other trials types as well
+
+
+160 step ridculas over fit
+40 good on ineligible very bad on elgible
+im going to generate 5 more elgibil synthetic patients per trial
