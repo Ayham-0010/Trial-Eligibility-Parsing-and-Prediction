@@ -169,8 +169,7 @@ The exact installation commands used in the notebooks are:
 
 Clone the repository
 
-* git clone https://github.com/Ayham-0010/(repo name)
-cd repo name
+* git clone https://github.com/Ayham-0010/Trial-Eligibility-Parsing-and-Prediction
 
 Open the notebooks: 
 
