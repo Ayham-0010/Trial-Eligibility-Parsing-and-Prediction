@@ -25,7 +25,7 @@ Removes non-interventional and non-drug studies<br>
 Consolidates eligibility text into a consistent format<br>
 
 Strength: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
-For a full example see the [Parsing Results Sample](./assets/Parsing_Results_Sample.md).
+For a full example see the [Results_Preview](./assets/Results_Preview.md).
 
 <h3> 2. Eligibility Criteria Parsing (LLM-Based) </h3>
 
