@@ -24,7 +24,7 @@ Filters for lung cancer–related trials using Mesh terms and additional rule-ba
 Removes non-interventional and non-drug studies<br>
 Consolidates eligibility text into a consistent format<br>
 
-Strength: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
+Impact: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
 
 
 <h3> 2. Eligibility Criteria Parsing (LLM-Based) </h3>
@@ -34,7 +34,7 @@ Captures ECOG status, lab thresholds, prior therapies, biomarkers, and other cli
 Includes schema validation, error correction, and normalization steps<br>
 Resolves common inconsistencies in eligibility phrasing<br>
 
-Strength: Converts unstructured medical text into standardized, machine-readable data.
+Impact: Converts unstructured medical text into standardized, machine-readable data.
 
 <h3> 3. Normalization & Clinical Logic </h3>
 
@@ -43,7 +43,7 @@ Maps ambiguous lab criteria to standard thresholds when possible<br>
 Applies consistent terminology for metastases, prior treatments, and contraindications<br>
 Flags unsupported or unclear criteria for review<br>
 
-Strength: Improves data consistency and enables reliable comparisons across trials.
+Impact: Improves data consistency and enables reliable comparisons across trials.
 
 <h3> 4. Fine-Tuned Patient-Trial Matching Model </h3>
 
@@ -55,7 +55,7 @@ Trains a LoRA-based LLM using Unsloth<br>
 Exports both adapter and merged model versions<br>
 Includes an inference wrapper for production-style evaluation<br>
 
-Strength: Provides a reproducible method for generating patient-trial eligibility decisions.
+Impact: Provides a reproducible method for generating patient-trial eligibility decisions.
 
 <h3> 5. Reproducible Pipeline & Modular Codebase </h3>
 
@@ -64,7 +64,7 @@ Consistent data structures across all stages<br>
 Test cases for key components<br>
 Clear separation of concerns and extensible design<br>
 
-Strength: Easy to extend to new disease areas, additional criteria, or alternative models.
+Impact: Easy to extend to new disease areas, additional criteria, or alternative models.
 
 
 # Architecture Diagram
