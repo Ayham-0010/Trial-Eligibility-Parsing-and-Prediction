@@ -14,7 +14,7 @@ Fine-tune an LLM to evaluate patient eligibility<br>
 Provide a clean inference interface for real-world use<br>
 
 The result is a modular system that transforms raw trial data into structured inputs suitable for machine learning and then uses a trained model to provide eligibility assessments.<br>
-
+For a full example see the [Results_Preview](./assets/Results_Preview.md).
 # Key Components
 
 <h3> 1. Clinical Trial Data Ingestion </h3>
@@ -25,7 +25,7 @@ Removes non-interventional and non-drug studies<br>
 Consolidates eligibility text into a consistent format<br>
 
 Strength: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
-For a full example see the [Results_Preview](./assets/Results_Preview.md).
+
 
 <h3> 2. Eligibility Criteria Parsing (LLM-Based) </h3>
 
