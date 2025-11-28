@@ -1,5 +1,6 @@
-# parsing result sample:
+# Project Results Preview
 
+# Eligibility Text:
 
 Key Inclusion Criteria: 
 * Participant has histologically or cytologically confirmed metastatic NSCLC (stage IV with known subtype). 
@@ -16,6 +17,7 @@ Key Exclusion Criteria:
 * Participants with newly identified or known unstable or symptomatic central nervous system (CNS) metastases or history of carcinomatous meningitis. * Prior treatment with docetaxel for NSCLC. 
 * Prior treatment with a 4-1BB (CD137) targeted agent, any type of antitumor vaccine, autologous cell immunotherapy, or any unapproved immunotherapy. * Treatment with an anticancer agent within 28 days prior to the first dose of trial treatment. Note: Other protocol-defined inclusion and exclusion criteria may apply.
 
+# Eligibility Parsed to json:
 
 ```json
 {
@@ -48,7 +50,13 @@ Key Exclusion Criteria:
     "prior_therapy": {
       "required": ["PD-1/PD-L1 inhibitor and platinum-based chemotherapy"],
       "allowed": [],
-      "disallowed": ["docetaxel for NSCLC", "4-1BB targeted agent", "antitumor vaccine", "autologous cell immunotherapy", "unapproved immunotherapy"],
+      "disallowed": [
+        "docetaxel for NSCLC",
+        "4-1BB targeted agent",
+        "antitumor vaccine",
+        "autologous cell immunotherapy",
+        "unapproved immunotherapy"
+      ],
       "max_lines_systemic": 2,
       "washout_weeks": {
         "chemotherapy": 4,
@@ -78,8 +86,7 @@ Key Exclusion Criteria:
     },
     "contraception_required": null,
     "other_inclusions": [
-      "Tumor sample from metastatic setting required for PD-L1 testing",
-      "Adequate organ and bone marrow function"
+      "Adequate organ and bone marrow function per laboratory test results within 7 days of trial treatment"
     ]
   },
   "exclusion": {
@@ -90,13 +97,40 @@ Key Exclusion Criteria:
     "history_of": ["carcinomatous meningitis"],
     "concurrent_medications_disallowed": [],
     "other_exclusions": [
-      "Known targetable EGFR mutations",
+      "Known targetable EGFR sensitizing mutations",
       "Known ALK rearrangement",
       "Known RET rearrangement",
       "Known ROS1 rearrangement",
-      "Known MET exon 14 skipping mutations/MET amplification",
-      "Known KRAS/BRAF mutations with access to approved targeted therapies"
+      "Known MET exon 14 skipping mutations/MET amplification"
     ]
   }
+}
+
+```
+
+# Patient json:
+
+``` json
+{
+  "age": 55,
+  "gender": "M",
+  "diagnosis": "metastatic NSCLC adenocarcinoma",
+  "prior_lines": 1,
+  "last_chemo_weeks_ago": 5,
+  "pd_l1_tps": 1,
+  "brain_mets": "none",
+  "ecog": 1,
+  "pregnant": false
+}
+```
+
+
+
+# Model Output:
+
+``` json
+{
+  "is_eligible": true,
+  "reasoning": "Eligible: Metastatic NSCLC adenocarcinoma, 1 prior line (PD-1/PD-L1 inhibitor and platinum-based chemotherapy), ECOG 1, no brain mets, adequate organ function, and meets PD-L1 expression \u22651% criteria."
 }
 ```
