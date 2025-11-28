@@ -95,7 +95,7 @@ To reduce token consumption and make synthetic data generation consistent across
 A unique patient identity is produced by combining:<br>
 <b>trial_id + patient_id</b> 
 
-<h3>This guarantees:</h3>
+This guarantees:
 
 - Stable patient structure across models
 - No ID collisions when using multiple LLMs
@@ -169,8 +169,7 @@ The exact installation commands used in the notebooks are:
 
 Clone the repository
 
-* git clone https://github.com/Ayham-0010/(repo name)
-cd repo name
+* git clone https://github.com/Ayham-0010/Trial-Eligibility-Parsing-and-Prediction
 
 Open the notebooks: 
 
