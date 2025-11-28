@@ -25,6 +25,7 @@ Removes non-interventional and non-drug studies<br>
 Consolidates eligibility text into a consistent format<br>
 
 Strength: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
+For a full example see the [Parsing Results Sample](./assets/Parsing_Results_Sample.md).
 
 <h3> 2. Eligibility Criteria Parsing (LLM-Based) </h3>
 
@@ -66,8 +67,9 @@ Clear separation of concerns and extensible design<br>
 Strength: Easy to extend to new disease areas, additional criteria, or alternative models.
 
 
-# Architecture Summary
+# Architecture Diagram
 
+![Trial Eligibility Parsing and Prediction Diagram](./assets/Trial-Eligibility-Parsing-and-Prediction-Diagram.png)
 
 
 
@@ -153,9 +155,17 @@ Optional UI for trial exploration and matching
 
 
 
-# Quick Start
+
+# Quick Start (Colab)
 
 “This project is designed to run in a Google Colab environment with GPU access. Local setup has not been tested and may require adjustments.”
+
+The exact installation commands used in the notebooks are:
+```python
+!pip install -q "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+!pip install -q --no-deps xformers==0.0.28 trl peft accelerate bitsandbytes
+!pip install -q huggingface_hub transformers sentencepiece
+```
 
 Clone the repository
 
@@ -170,6 +180,7 @@ Open the notebooks:
 
 2. Inference.ipynb
 * Get your Hugging Face token with read permissions
+* Get your Groq API key for eligibility parsing
 * load the model
 * Set the input (patient and trial eligibiliity)
 * Run the inferance function
