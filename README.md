@@ -2,6 +2,18 @@
 
 This project provides an end-to-end pipeline for extracting clinical trial data, structuring eligibility criteria, and evaluating patient eligibility using a fine-tuned language model. It integrates data engineering, schema-guided NLP parsing, and supervised LLM training to create a reproducible workflow suitable for healthcare AI applications.
 
+# Table of contents
+- [Overview](#overview)
+- [Key Components](#key-components)
+- [Architecture Diagram](#architecture-diagram)
+- [Training Behavior & Experiments](#training-behavior-and-experiments)
+- [Synthetic Patient Strategy](#synthetic-patient-strategy)
+- [Dataset Quality and Scale Considerations](#dataset-quality-and-scale-considerations)
+- [Future Extensions](#future-extensions)
+- [Tech Stack](#tech-stack)
+- [Quick Start (Colab)](#quick-start-colab)
+- [License & Contact](#license--contact)
+
 # Overview
 
 Clinical trial eligibility criteria are often written in long, unstructured text. This makes automated patient-trial matching difficult.<br>
