@@ -185,6 +185,12 @@ Open the notebooks:
 * Run the inferance function
 
 
+## License & contact
+
+**License**: All Rights Reserved.<br>This code is for personal use only 
+
+Email: ayham.zinedine01@gmail.com<br>
+Linkedin: https://www.linkedin.com/in/ayham-zinedine-b8ab18291/
 
 
 <br>
