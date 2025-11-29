@@ -19,52 +19,63 @@ For a full example see the [Results_Preview](./assets/Results_Preview.md).
 
 <h3> 1. Clinical Trial Data Ingestion </h3>
 
-Pulls studies from the ClinicalTrials.gov API<br>
-Filters for lung cancer–related trials using Mesh terms and additional rule-based heuristics<br>
-Removes non-interventional and non-drug studies<br>
-Consolidates eligibility text into a consistent format<br>
+- Pulls studies from the ClinicalTrials.gov API<br>
+- Filters for lung cancer–related trials using Mesh terms and additional rule-based heuristics<br>
+- Removes non-interventional and non-drug studies<br>
+- Consolidates eligibility text into a consistent format<br>
 
-Impact: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
+**Impact**: Creates a domain-specific, high-quality dataset suitable for downstream NLP tasks.<br>
 
 
 <h3> 2. Eligibility Criteria Parsing (LLM-Based) </h3>
 
-Uses a structured JSON schema to extract inclusion and exclusion criteria<br>
-Captures ECOG status, lab thresholds, prior therapies, biomarkers, and other clinically relevant attributes<br>
-Includes schema validation, error correction, and normalization steps<br>
-Resolves common inconsistencies in eligibility phrasing<br>
+- Uses a structured JSON schema to extract inclusion and exclusion criteria<br>
+- Captures ECOG status, lab thresholds, prior therapies, biomarkers, and other clinically relevant attributes<br>
+- Includes schema validation, error correction, and normalization steps<br>
+- Resolves common inconsistencies in eligibility phrasing<br>
 
-Impact: Converts unstructured medical text into standardized, machine-readable data.
+**Impact**: Converts unstructured medical text into standardized, machine-readable data.
 
 <h3> 3. Normalization & Clinical Logic </h3>
 
-Normalizes ECOG ranges<br>
-Maps ambiguous lab criteria to standard thresholds when possible<br>
-Applies consistent terminology for metastases, prior treatments, and contraindications<br>
-Flags unsupported or unclear criteria for review<br>
+- Normalizes ECOG ranges<br>
+- Maps ambiguous lab criteria to standard thresholds when possible<br>
+- Applies consistent terminology for metastases, prior treatments, and contraindications<br>
+- Flags unsupported or unclear criteria for review<br>
 
-Impact: Improves data consistency and enables reliable comparisons across trials.
+**Impact**: Improves data consistency and enables reliable comparisons across trials.
 
 <h3> 4. Fine-Tuned Patient-Trial Matching Model </h3>
 
-Creates supervised training pairs combining:<br>
-Patient JSON profiles<br>
-Parsed trial eligibility JSON<br>
-Expected eligibility outcome and reasoning<br>
-Trains a LoRA-based LLM using Unsloth<br>
-Exports both adapter and merged model versions<br>
-Includes an inference wrapper for production-style evaluation<br>
+- Creates supervised training pairs combining:<br>
+- Patient JSON profiles<br>
+- Parsed trial eligibility JSON<br>
+- Expected eligibility outcome and reasoning<br>
+- Trains a LoRA-based LLM using Unsloth<br>
+- Exports both adapter and merged model versions<br>
+- Includes an inference wrapper for production-style evaluation<br>
 
-Impact: Provides a reproducible method for generating patient-trial eligibility decisions.
+**Impact**: Provides a reproducible method for generating patient-trial eligibility decisions.
 
-<h3> 5. Reproducible Pipeline & Modular Codebase </h3>
+<h3> 5. Resource-Aware Fine-Tuning </h3>
 
-Separate modules for ingestion, parsing, validation, training, and inference<br>
-Consistent data structures across all stages<br>
-Test cases for key components<br>
-Clear separation of concerns and extensible design<br>
+- Base model loaded in 4-bit →(≈4.5 GB weights instead of 16 GB)  
+- LoRA with rank 32 → perfect quality and low VRAM 
+- Unsloth’s efficient gradient checkpointing and 8-bit Adam optimizer  
+- Micro-batch 2 + gradient accumulation 4 → effective batch size 8  
+- Sequence packing enabled → more real clinical text per second  
+- Model merging also done in 4-bit → fits comfortably on the same T4/4090  
 
-Impact: Easy to extend to new disease areas, additional criteria, or alternative models.
+**Impact**: Anyone with a modern laptop GPU or free Colab can fully reproduce, modify, or extend this oncology eligibility model, no A100s or paid cloud credits required.
+
+<h3> 6. Reproducible Pipeline & Modular Codebase </h3>
+
+- Separate modules for ingestion, parsing, validation, training, and inference<br>
+- Consistent data structures across all stages<br>
+- Test cases for key components<br>
+- Clear separation of concerns and extensible design<br>
+
+**Impact**: Easy to extend to new disease areas, additional criteria, or alternative models.
 
 
 # Architecture Diagram
